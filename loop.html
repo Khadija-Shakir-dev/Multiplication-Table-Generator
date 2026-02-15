@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    font-family:  Helvetica, sans-serif;
+  }
+body,html{
+width: 100%;
+background: #11044df0;
+height: 100%;
+background: radial-gradient(circle, rgba(3, 5, 8, 0.982) 0%, rgb(3, 14, 38) 100%);
+ 
+}
+
+.wrapper{
+   position: absolute;
+    transform: translate(-50% ,-50%);
+    top: 50%;
+    left: 50%;
+    /* width: 100%; */
+}
+h1{
+  color: white;
+  text-align: center;
+  font-size: clamp(25px, 7vw ,32px);
+  padding: 10px;
+}
+  .container{
+    /* position: absolute;
+    transform: translate(-50% ,-50%);
+    top: 50%;
+    left: 50%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    border: solid rgba(0, 0, 0, 0.09);
+    width: 90%;
+    max-width: 562px;
+     background: rgba(247, 247, 247, 0.863);
+
+
+}
+
+ input[type="number"] {
+    width: 80%;
+    padding: 0.7em 0.5em;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: rgb(44, 3, 52);
+    font-size: clamp(12px ,4vw,16px);
+    font-weight: bold;
+  }
+
+  #btn{
+    background-color: rgba(119, 52, 243, 0.947);
+    border: none;
+    padding: 1.1em 0.9em;
+    outline: none;
+    border-radius: 5px;
+    margin: 13px 0;
+    color: white;
+    /* font-weight: bold; */
+    font-size: clamp(14px ,6vw,16px);
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+
+  }
+
+  #output{
+    color: rgb(19, 18, 18);
+    /* background-color: rgba(240, 255, 255, 0.159); */
+    font-weight: bold;
+    font-size: clamp(11px ,4vw,18px);
+     padding: 4px;
+     
+     margin: 5px;
+    box-shadow: rgba(0, 0, 0, 0.123) 0px 3px 8px;
+border-radius: 6px;
+  }
+
+  br{
+margin-bottom: 2px;
+  }
+@media (max-width: 650px) {
+  .container{
+    max-width: 260px;
+  }
+  #output{
+    font-size: clamp(12px ,4vw,16px);
+
+  }
+  h1{
+  font-size: clamp(14px, 7vw ,23px);
+  line-height: 1.3;
+}
+}
+</style>
+
+</head>
+
+
+<body>
+  <div class="wrapper">
+<h1>Multiplication Table Generator</h1>
+  <!-- <div>enter number</div> -->
+   <div class="container">
+  <input type="number" id="Number" placeholder=" enter Table Number" autofocus>
+
+  <!-- <div>enter lenght number</div> -->
+  <input type="number" id="lenght" placeholder="Enter table lenght"autofocus>
+ 
+  <div id="output"></div>
+  <button id="btn"> Generate Table</button>
+</div>
+</div>
+
+  <script>
+ let btn = document.getElementById("btn");
+ let output = document.getElementById("output");
+
+
+
+ btn.addEventListener("click", function () {
+
+let number = Number(document.getElementById("Number").value);
+ let len = Number(document.getElementById("lenght").value);
+
+
+  if (number<= 0 || len <= 0) {
+    output.innerHTML = "Please enter only positive number..!"
+    output.style.color="rgb(66, 11, 5)"
+  }
+  else if (number === "" || length === "") {
+    output.innerHTML = "Please fill all fields..!"
+    output.style.color="rgb(66, 11, 5)"
+  }
+  else{
+  console.log(67 ,"working");
+ 
+
+  output.innerHTML="" 
+  for (let i = 1; i <= len ; i++) {
+    let result = `${number} * ${i} = ${number*i}` // storing table value in to a variable
+    // console.log(result);
+    
+    output.innerHTML += result + "<br>" ;  // += make add new value line by line instead of updating
+  }
+}
+
+
+ })
+  </script>
+</body>
+</html>
